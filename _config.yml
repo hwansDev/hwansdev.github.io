@@ -26,7 +26,7 @@ author:
   name: hwans (leekeunhwan, leejinhwan)
   site: https://hwansdev.github.io
   description: We will talk and explain about web development technology in general.
-  image: social-image.png
+  image:
   email: dlrmsghks7@gmail.com
   github: hwansDev
   twitter:

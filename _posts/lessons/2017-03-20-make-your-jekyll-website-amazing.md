@@ -14,7 +14,7 @@ css:
 js: 
 bgcolor: ff5a71
 keywords: helium, web desing, css, html, bootstrap 4
-canonical: https://fullit.github.io
+canonical: https://hwansdev.github.io/
 ---
 {% include JB/setup %}
 

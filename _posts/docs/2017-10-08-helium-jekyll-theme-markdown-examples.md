@@ -17,6 +17,7 @@ canonical: https://fullit.github.io
 
 ---
 {% include JB/setup %}
+
 Markdown samples usefull when you start write your blog 🎉 🎆.
 
 <!--more-->

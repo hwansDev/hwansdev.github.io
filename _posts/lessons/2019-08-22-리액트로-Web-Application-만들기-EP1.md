@@ -138,6 +138,7 @@ React.js를 개발환경을 갖추는 방법으로는 2가지가 있는데요!<b
 
 터미널을 켜고 해당 명령어를 입력하여 프로젝트를 관리할 폴더를 만듭니다.<br>
 제 경우에는 `mkdir React_OP_GG`로 하였습니다.<br>
+
 <br>
 
 `2. package.json 생성 (npm init)`
@@ -147,11 +148,15 @@ npm init이라는 명령어는 package.json이라는 프로젝트 정보를 담�
 npm init을 하면 각각의 항목에 무엇이 들어갈지 물어보는데 npm init -y를 하면<br>
 모든 요소에 대해 default값을 넣어 만들어줍니다.<br>
 
+<br>
+
 `3. package.json 정보 수정`
 
 텍스트 에디터를 켜서 해당 프로젝트 폴더에 들어가면 package.json이라는 파일이 존재하는 것이 보이실텐데요!<br>
 package.json은 지금 default값을 넣어 만들어진 상태이기 때문에 저희의 프로젝트 정보에 맞게 수정해줍니다.<br>
 아래는 제가 미리 수정한 package.json입니다.<br>
+
+<br>
 
 ```json
 {
@@ -206,6 +211,8 @@ package.json은 지금 default값을 넣어 만들어진 상태이기 때문에 
   }
 }
 ```
+
+<br>
 
 package.json에서 중요한 것은 devDependencies와 dependencies인데요.<br>
 devDependencies는 개발환경에서 사용할 모듈을 의미하며,<br>

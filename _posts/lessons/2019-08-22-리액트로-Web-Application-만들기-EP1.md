@@ -324,12 +324,11 @@ import React from "react";
 
 const App = () => {
   return (
-    <span style={{ backgroundColor: "lightblue" }}>Welcome To React.js</span>
+    <span style={{ backgroundColor: 'lightblue' }}>Welcome To React.js</span>
   );
 };
 
 export default App;
-
 ```
 
 <br>
@@ -338,6 +337,11 @@ export default App;
 parcel의 빌드를 거쳐 http://localhost:1234에 React 앱을 구동시켜줍니다.<br>
 그러면 다음과 같은 화면이 렌더링 된 것을 보실 수 있습니다.<br>
 
-<img src="https://github.com/hwansDev/hwansdev.github.io/blob/master/assets/images/react_lesson/lesson1/firstBuild1.png?raw=true" width="500" />
+<img src="https://github.com/hwansDev/hwansdev.github.io/blob/master/assets/images/react_lesson/lesson1/firstBuild1.png" width="500" />
+
+<br>
+
+아직까지 대단해보이진 않아도, `우리는 직접 개발환경을 세팅하고`<br>
+`React.js를 웹 브라우저에 렌더링 시키는 것까지 성공적`으로 해냈습니다.<br>
 
 <br>

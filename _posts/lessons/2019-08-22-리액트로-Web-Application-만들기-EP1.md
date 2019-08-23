@@ -191,7 +191,8 @@ package.json은 지금 default값을 넣어 만들어진 상태이기 때문에 
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "babel-preset-es2015": "^6.24.1",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
     "parcel-bundler": "^1.12.3"
   },
   // 실제 배포할 서비스에서 사용할 모듈
@@ -200,12 +201,8 @@ package.json은 지금 default값을 넣어 만들어진 상태이기 때문에 
     "autoprefixer": "^9.6.1",
     "axios": "^0.19.0",
     "babel-polyfill": "^6.26.0",
-    "postcss-modules": "^1.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-redux": "^7.1.0",
-    "redux": "^4.0.4",
-    "redux-devtools-extension": "^2.13.8",
     "regenerator-runtime": "^0.13.3",
     "styled-components": "^4.3.2"
   }
@@ -213,6 +210,18 @@ package.json은 지금 default값을 넣어 만들어진 상태이기 때문에 
 ```
 
 <br>
+
+`yarn add @babel/core @babel/preset-react babel-loader @babel/preset-env parcel-bundler --dev`
+`yarn add aix autoprefixer axios babel-polyfill react react-dom react-redux regenerator-runtime styled-components`
+
+이 두줄의 명렁어를 터미널에 입력하여 설치하면 --dev를 입력한 것은 devDependencies에<br>
+두번째처럼 --dev가 없는 것은 dependencies에 자동으로 설치가 됩니다.<br>
+버젼을 정해주지 않으면 최신버젼으로 설치가 되는데 간혹 버젼이 현재의 리액트 버젼과 충돌이 나는 경우도 있으니<br>
+그럴땐 사용하실 모듈의 버젼을 리액트와 호환되는 것으로 교체하시면 됩니다.<br>
+
+위의 명령어가 귀찮다 싶으시면 위의 json파일중 devDependencies와 dependencies를 복사하셔서<br>
+프로젝트 내의 package.json에 붙여넣기하시고 터미널을 열고 프로젝트 내부로 경로를 이동 후<br>
+`yarn install`이라고 명령어를 입력해주시면 설치가 됩니다.<br>
 
 package.json에서 중요한 것은 devDependencies와 dependencies인데요.<br>
 devDependencies는 개발환경에서 사용할 모듈을 의미하며,<br>
@@ -230,3 +239,102 @@ webpack, rollup과 같은 다른 번들러도 있지만, 앞선 번들러와 달
 parcel의 장점만 너무 설명드렸는데, 코드 스플리팅과 같은 작업에서는 또 다른 번들러보다 느려서<br>
 <a href="https://medium.com/js-imaginea/comparing-bundlers-webpack-rollup-parcel-f8f5dc609cfd">정확한 비교를 해놓은 글</a>을 공유드릴테니 읽어보시고 맞는 번들러를 사용하시는 걸 추천드립니다.<br>
 해당 프로젝트 튜토리얼에서는 파셀을 쓸 예정입니다. 다른 번들러를 설정하여 사용하셔도 괜찮습니다.<br>
+
+<br>
+
+`4. babel 설정`
+
+위에서 말씀드린 바벨을 설정해주기 위해서는 프로젝트 폴더 내부에 `.babelrc`라는 파일을 만듭니다.<br>
+그리고 아래의 내용을 입력해줍니다.<br>
+자세하게 설명을 드리기에는 내용이 많아 추후에 따로 소개해드리겠습니다.<br>
+
+```
+{
+    "presets": ["@babel/preset-react", "@babel/preset-env"]
+}
+```
+
+<br>
+
+`5. 파일 추가`
+
+해당 프로젝트 폴더 내에 src라는 폴더를 만들고 폴더 내부에 `index.html`, `index.js` 라는 파일을 추가해줍니다.<br>
+그리고 react라는 폴더를 생성하고 react폴더 내부에 App.js라는 파일을 추가해줍니다.<br>
+그리고 아래의 코드를 타이핑 혹은 복사 및 붙여넣기하시면 됩니다. (가급적이면 손에 익는게 좋으니 타이핑을 권장드립니다.)<br>
+
+```
+// index.html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OPGG</title>
+</head>
+
+<body>
+    <!-- 렌더할 대상의 div를 하나 만듭니다. -->
+    <!-- id는 다른것으로 변경해도 reactDom 렌더 대상만 똑같이 바꿔주면 상관없습니다. -->
+    <!-- 꼭 react를 쓴다고 react 하나만을 써야하는 것은 아니며 -->
+    <!-- vue.js도 같이 쓸수 있습니다. 하지만 그러지 않는게 좋습니다. -->
+    <div id="app"></div>
+
+    <!-- index.js 로드 -->
+    <script src="index.js"></script>
+</body>
+
+</html>
+```
+
+<br>
+
+```
+// index.js
+
+//----------------------------
+// import React && React-dom
+//----------------------------
+
+import React from "react";
+import ReactDom from "react-dom";
+
+//----------------------------
+// import App.js
+//----------------------------
+import App from "./react/App.js";
+
+// 추후 Redux or Context를 쓰기 위해 별도 Entry 컴포넌트 구성했습니다.
+const Entry = () => {
+  return <App />;
+};
+
+// index.html의 id가 app인 div에 Entry(<App/>)를 Render를 하겠다는 의미입니다.
+ReactDom.render(<Entry />, document.querySelector("#app"));
+```
+
+<br>
+
+```
+// App.js
+
+import React from "react";
+
+const App = () => {
+  return <div>초기 개발환경 세팅</div>;
+};
+
+export default App;
+```
+
+<br>
+
+이렇게 폴더를 작성하고 터미널을 켜서 프로젝트 폴더로 이동후 `yarn run dev`라고 치면<br>
+parcel의 빌드를 거쳐 http://localhost:1234에 React 앱을 구동시켜줍니다.<br>
+그러면 다음과 같은 화면이 렌더링 된 것을 보실 수 있습니다.<br>
+
+<img src="../../assets/images/react_lesson/lesson1/firstBuild.png" width="500" />
+
+<br>

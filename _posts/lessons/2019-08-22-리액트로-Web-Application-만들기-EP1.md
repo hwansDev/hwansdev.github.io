@@ -323,10 +323,13 @@ ReactDom.render(<Entry />, document.querySelector("#app"));
 import React from "react";
 
 const App = () => {
-  return <div>초기 개발환경 세팅</div>;
+  return (
+    <span style={{ backgroundColor: "lightblue" }}>Welcome To React.js</span>
+  );
 };
 
 export default App;
+
 ```
 
 <br>
@@ -335,6 +338,6 @@ export default App;
 parcel의 빌드를 거쳐 http://localhost:1234에 React 앱을 구동시켜줍니다.<br>
 그러면 다음과 같은 화면이 렌더링 된 것을 보실 수 있습니다.<br>
 
-<img src="../../assets/images/react_lesson/lesson1/firstBuild.png" width="500" />
+<img src="https://github.com/hwansDev/hwansdev.github.io/blob/master/assets/images/react_lesson/lesson1/firstBuild.png?raw=true" width="500" />
 
 <br>
